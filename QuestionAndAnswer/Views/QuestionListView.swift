@@ -35,6 +35,17 @@ struct QuestionListView: View {
                     }
                     .listStyle(PlainListStyle())
                     .frame(height: CGFloat(viewModel.questions.count * 120))
+                    .toolbar {
+                        ToolbarItemGroup(placement: .keyboard) {
+                            Spacer()
+                            Button("Done") {
+                                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder),
+                                                             to: nil,
+                                                             from: nil,
+                                                             for: nil)
+                            }
+                        }
+                    }
                     
                     Button("Save") {
                         viewModel.saveData()
