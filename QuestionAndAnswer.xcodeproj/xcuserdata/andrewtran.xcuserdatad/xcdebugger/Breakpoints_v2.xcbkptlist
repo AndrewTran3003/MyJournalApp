@@ -46,40 +46,10 @@
             filePath = "QuestionAndAnswer/ViewModels/QuestionListViewModels.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "extractJournalEntryFromInput()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "E761CEAD-ED88-4883-B941-9EE8ED48FE3E - f7a5731a3438e38e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "QuestionAndAnswer.QuestionListViewModel.extractJournalEntryFromInput() -&gt; QuestionAndAnswer.JournalEntryState"
-                  moduleName = "QuestionAndAnswer.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/andrewtran/Documents/Projects/QuestionAndAnswer/QuestionAndAnswer/ViewModels/QuestionListViewModels.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "42"
-                  endingLineNumber = "42">
-               </Location>
-               <Location
-                  uuid = "E761CEAD-ED88-4883-B941-9EE8ED48FE3E - dffa917952c1dc7e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (QuestionAndAnswer.JournalEntryState) -&gt; Swift.Bool in QuestionAndAnswer.QuestionListViewModel.extractJournalEntryFromInput() -&gt; QuestionAndAnswer.JournalEntryState"
-                  moduleName = "QuestionAndAnswer.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/andrewtran/Documents/Projects/QuestionAndAnswer/QuestionAndAnswer/ViewModels/QuestionListViewModels.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "42"
-                  endingLineNumber = "42">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

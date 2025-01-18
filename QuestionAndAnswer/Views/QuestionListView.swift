@@ -4,25 +4,33 @@ struct QuestionListView: View {
     @ObservedObject var viewModel: QuestionListViewModel
 
     var body: some View {
-        List {
-            ForEach($viewModel.questions) { $question in
-                VStack(alignment: .leading) {
-                    Text(question.text)
-                        .font(.headline)
-                    TextEditor(text: $question.answer.toNonOptionalString())
-                        .frame(height: 100)  // Set a specific height for the editor
-                        .border(Color.gray.opacity(0.2))  // Add a subtle border
+        VStack {
+            Text("Journal Entry")
+                .font(.title)
+                .padding(.top)
+            
+            TextField("New Journal Entry", text: $viewModel.journalName)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+            
+            List {
+                ForEach($viewModel.questions) { $question in
+                    VStack(alignment: .leading) {
+                        Text(question.text)
+                            .font(.headline)
+                        TextEditor(text: $question.answer.toNonOptionalString())
+                            .frame(height: 100)  // Set a specific height for the editor
+                            .border(Color.gray.opacity(0.2))  // Add a subtle border
+                    }
                 }
             }
+            
+            Button("Save") {
+                viewModel.saveData()
+            }
+            .padding()
         }
-        Button("Save") { // Add the Save button here
-            viewModel.saveData()
-        }
-        .padding() // Add some padding around the button
-               
     }
-
-
 }
 
 

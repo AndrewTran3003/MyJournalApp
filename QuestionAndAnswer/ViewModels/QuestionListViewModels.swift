@@ -4,6 +4,7 @@ import Combine
 class QuestionListViewModel: ObservableObject {
     @Published var questions: [Question] = []
     @Published var journalId: UUID?
+    @Published var journalName: String = "New Journal Entry"
     private var state: State
 
     init(state: State) {
@@ -11,10 +12,11 @@ class QuestionListViewModel: ObservableObject {
         loadQuestionsFromJSON()
     }
 
-    init(questions: [Question], journalId: UUID, state: State) {
+    init(questions: [Question], journalId: UUID, state: State, journalEntryName: String) {
         self.state = state
         self.questions = questions
         self.journalId = journalId
+        self.journalName = journalEntryName
     }
 
     func loadQuestionsFromJSON() {
@@ -41,7 +43,7 @@ class QuestionListViewModel: ObservableObject {
     func extractJournalEntryFromInput () -> JournalEntryState {
         var updateJournalEntry = state.peopleDataList.people.first(where: {$0.id == journalId}) ?? JournalEntryState(id: UUID())
     
-        updateJournalEntry.name = Date.now.description
+        updateJournalEntry.journalEntryName = journalName
         updateJournalEntry.questionsAndAnswers = questions.map {
             QuestionAndAnswerState(id: UUID(), question: $0.text, answer: $0.answer ?? "")
         }
