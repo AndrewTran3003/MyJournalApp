@@ -41,7 +41,7 @@ class QuestionListViewModel: ObservableObject {
     }
     
     func extractJournalEntryFromInput () -> JournalEntryState {
-        var updateJournalEntry = state.peopleDataList.people.first(where: {$0.id == journalId}) ?? JournalEntryState(id: UUID())
+        var updateJournalEntry = state.journalList.journalEntryList.first(where: {$0.id == journalId}) ?? JournalEntryState(id: UUID())
     
         updateJournalEntry.journalEntryName = journalName
         updateJournalEntry.questionsAndAnswers = questions.map {

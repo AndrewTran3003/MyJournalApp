@@ -2,18 +2,18 @@ import Foundation
 
 
 class AppState: ObservableObject {
-    @Published var peopleDataList: JournalListState
+    @Published var journalList: JournalListState
 
     init(peopleDataList: JournalListState = JournalListState()) {
-        self.peopleDataList = peopleDataList
+        self.journalList = peopleDataList
     }
     
     func SaveJournalData(entry : JournalEntryState) {
-        if let index = peopleDataList.people.firstIndex(where: { $0.id == entry.id}) {
-            peopleDataList.people[index] = entry
+        if let index = journalList.journalEntryList.firstIndex(where: { $0.id == entry.id}) {
+            journalList.journalEntryList[index] = entry
         }
         else {
-            peopleDataList.people.append(entry)
+            journalList.journalEntryList.append(entry)
         }
         objectWillChange.send()
     }

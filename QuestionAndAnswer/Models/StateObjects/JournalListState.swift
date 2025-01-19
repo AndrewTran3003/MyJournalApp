@@ -7,7 +7,7 @@
 import Foundation
 
 class JournalListState: ObservableObject {
-    @Published var people: [JournalEntryState] = []
+    @Published var journalEntryList: [JournalEntryState] = []
     
     init() {}
 }

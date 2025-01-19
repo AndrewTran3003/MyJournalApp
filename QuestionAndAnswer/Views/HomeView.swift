@@ -16,7 +16,7 @@ struct HomeView: View {
             VStack {
                 List {
                     // Existing code to display the list of people
-                    ForEach(state.peopleDataList.people) { person in
+                    ForEach(state.journalList.journalEntryList) { person in
                                             NavigationLink(destination: QuestionListView(
                                                 viewModel: QuestionListViewModel(questions: person.questionsAndAnswers.map { Question(id: $0.id, text: $0.question, answer: $0.answer)},
                                                                                  journalId: person.id, state: state, journalEntryName: person.journalEntryName))) {
