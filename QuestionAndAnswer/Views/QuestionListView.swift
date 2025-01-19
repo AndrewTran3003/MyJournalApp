@@ -11,7 +11,7 @@ struct QuestionListView: View {
                 .aspectRatio(contentMode: .fill)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .edgesIgnoringSafeArea(.top)
-                .clipped() // Add this to clip the image
+                .clipped()
             
             // Content wrapper
             GeometryReader { geometry in
@@ -24,30 +24,22 @@ struct QuestionListView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding()
                     
-                    List {
-                        ForEach($viewModel.questions) { $question in
-                            VStack(alignment: .leading) {
-                                Text(question.text)
-                                    .font(.headline)
-                                TextEditor(text: $question.answer.toNonOptionalString())
-                                    .frame(height: 100)
-                                    .border(Color.gray.opacity(0.2))
+                    ScrollView {
+                        List {
+                            ForEach($viewModel.questions) { $question in
+                                VStack(alignment: .leading) {
+                                    Text(question.text)
+                                        .font(.headline)
+                                    TextEditor(text: $question.answer.toNonOptionalString())
+                                        .frame(height: 100)
+                                        .border(Color.gray.opacity(0.2))
+                                }
                             }
                         }
+                        .listStyle(PlainListStyle())
+                        .frame(height: CGFloat(viewModel.questions.count * 120))
                     }
-                    .listStyle(PlainListStyle())
-                    .frame(height: CGFloat(viewModel.questions.count * 120))
-                    .toolbar {
-                        ToolbarItemGroup(placement: .keyboard) {
-                            Spacer()
-                            Button("Done") {
-                                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder),
-                                                             to: nil,
-                                                             from: nil,
-                                                             for: nil)
-                            }
-                        }
-                    }
+                    .ignoresSafeArea(.keyboard, edges: .bottom)
                     
                     Button("Save") {
                         viewModel.saveData()
@@ -62,8 +54,18 @@ struct QuestionListView: View {
                 .position(x: geometry.size.width/2, y: geometry.size.height/2)
             }
         }
-        .ignoresSafeArea(.keyboard)
-        .background(Color.white) // Add white background to the whole view
+        .background(Color.white)
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button("Done") {
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder),
+                                                 to: nil,
+                                                 from: nil,
+                                                 for: nil)
+                }
+            }
+        }
     }
 }
 

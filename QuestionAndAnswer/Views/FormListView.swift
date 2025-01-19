@@ -8,20 +8,22 @@
 import SwiftUI
 
 struct FormListView: View {
-    @EnvironmentObject var state: AppState // Add environment object
+    @EnvironmentObject var state: AppState  // Add environment object
 
     var body: some View {
-        NavigationView{
-            VStack{
-                Text("All Forms created will be displayed here")
-                    .font(.title)
-                    .padding(.top)
-                Text("Under development :)")
-                    .font(.title)
-                    .padding(.top)
+        NavigationView {
+            VStack {
+
+                List {
+                    NavigationLink(
+                        destination: CreateNewFormView(
+                            viewModel: CreateNewFormViewModel(state: state))
+                    ) {
+                        Text("Create a new form")
+                    }
+                }
             }
             .navigationTitle("Forms")
         }
     }
 }
-
