@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @EnvironmentObject var state: State // Add environment object
+    @EnvironmentObject var state: AppState // Add environment object
 
     var body: some View {
         NavigationView {

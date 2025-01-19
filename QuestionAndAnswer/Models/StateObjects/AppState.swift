@@ -1,7 +1,7 @@
 import Foundation
 
 
-class State: ObservableObject {
+class AppState: ObservableObject {
     @Published var peopleDataList: JournalListState
 
     init(peopleDataList: JournalListState = JournalListState()) {

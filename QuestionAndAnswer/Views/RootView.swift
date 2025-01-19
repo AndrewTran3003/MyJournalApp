@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RootView: View {
-    @StateObject var state = State()  // Create the state object
+    @StateObject var state = AppState()  // Create the state object
 
     var body: some View {
 

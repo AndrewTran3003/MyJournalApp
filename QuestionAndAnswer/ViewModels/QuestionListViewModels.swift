@@ -5,14 +5,14 @@ class QuestionListViewModel: ObservableObject {
     @Published var questions: [Question] = []
     @Published var journalId: UUID?
     @Published var journalName: String = "New Journal Entry"
-    private var state: State
+    private var state: AppState
 
-    init(state: State) {
+    init(state: AppState) {
         self.state = state
         loadQuestionsFromJSON()
     }
 
-    init(questions: [Question], journalId: UUID, state: State, journalEntryName: String) {
+    init(questions: [Question], journalId: UUID, state: AppState, journalEntryName: String) {
         self.state = state
         self.questions = questions
         self.journalId = journalId
