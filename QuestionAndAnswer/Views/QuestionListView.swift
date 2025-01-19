@@ -4,15 +4,17 @@ struct QuestionListView: View {
     @ObservedObject var viewModel: QuestionListViewModel
 
     var body: some View {
-        GeometryReader { geometry in
-            ZStack {
-                // Background wallpaper
-                Image(uiImage:#imageLiteral(resourceName: "pexels-scottwebb-1029604.jpg"))
-                    .resizable()
-                    .edgesIgnoringSafeArea(.all)
-                    .scaledToFill()
-                
-                // Content wrapper
+        ZStack {
+            // Background wallpaper - fixed position
+            Image(uiImage:#imageLiteral(resourceName: "pexels-scottwebb-1029604.jpg"))
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .edgesIgnoringSafeArea(.top)
+                .clipped() // Add this to clip the image
+            
+            // Content wrapper
+            GeometryReader { geometry in
                 VStack {
                     Text("Journal Entry")
                         .font(.title)
@@ -57,11 +59,11 @@ struct QuestionListView: View {
                 .cornerRadius(15)
                 .shadow(radius: 10)
                 .padding()
-                .ignoresSafeArea(.keyboard)
-                .position(x: geometry.size.width/2, y: geometry.size.height/2) // Center the content
+                .position(x: geometry.size.width/2, y: geometry.size.height/2)
             }
         }
         .ignoresSafeArea(.keyboard)
+        .background(Color.white) // Add white background to the whole view
     }
 }
 
