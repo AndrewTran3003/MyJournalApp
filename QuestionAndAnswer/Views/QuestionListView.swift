@@ -6,24 +6,24 @@ struct QuestionListView: View {
     var body: some View {
         ZStack {
             // Background wallpaper - fixed position
-            Image(uiImage:#imageLiteral(resourceName: "pexels-scottwebb-1029604.jpg"))
+            Image(uiImage: #imageLiteral(resourceName: "pexels-scottwebb-1029604.jpg"))
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .edgesIgnoringSafeArea(.top)
                 .clipped()
-            
+
             // Content wrapper
             GeometryReader { geometry in
                 VStack {
                     Text("Journal Entry")
                         .font(.title)
                         .padding(.top)
-                    
+
                     TextField("New Journal Entry", text: $viewModel.journalName)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding()
-                    
+
                     ScrollView {
                         List {
                             ForEach($viewModel.questions) { $question in
@@ -40,7 +40,7 @@ struct QuestionListView: View {
                         .frame(height: CGFloat(viewModel.questions.count * 120))
                     }
                     .ignoresSafeArea(.keyboard, edges: .bottom)
-                    
+
                     Button("Save") {
                         viewModel.saveData()
                     }
@@ -51,7 +51,7 @@ struct QuestionListView: View {
                 .cornerRadius(15)
                 .shadow(radius: 10)
                 .padding()
-                .position(x: geometry.size.width/2, y: geometry.size.height/2)
+                .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
             }
         }
         .background(Color.white)
@@ -59,16 +59,16 @@ struct QuestionListView: View {
             ToolbarItemGroup(placement: .keyboard) {
                 Spacer()
                 Button("Done") {
-                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder),
-                                                 to: nil,
-                                                 from: nil,
-                                                 for: nil)
+                    UIApplication.shared.sendAction(
+                        #selector(UIResponder.resignFirstResponder),
+                        to: nil,
+                        from: nil,
+                        for: nil)
                 }
             }
         }
     }
 }
-
 
 extension Binding {
     // Binding transform to handle optionals in TextField

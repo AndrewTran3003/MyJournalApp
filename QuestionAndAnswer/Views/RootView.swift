@@ -17,7 +17,7 @@ struct RootView: View {
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
-                .environmentObject(state) // Inject into HomeView
+                .environmentObject(state)  // Inject into HomeView
             FormListView()
                 .tabItem {
                     Label("Forms", systemImage: "folder")

@@ -1,5 +1,5 @@
-import SwiftUI
 import Combine
+import SwiftUI
 
 class QuestionListViewModel: ObservableObject {
     @Published var questions: [Question] = []
@@ -33,16 +33,18 @@ class QuestionListViewModel: ObservableObject {
             print("Error decoding JSON: \(error)")
         }
     }
-    
-    func clearInputs(){
+
+    func clearInputs() {
         for i in 0..<questions.count {
             questions[i].answer = ""
         }
     }
-    
-    func extractJournalEntryFromInput () -> JournalEntryState {
-        var updateJournalEntry = state.journalList.journalEntryList.first(where: {$0.id == journalId}) ?? JournalEntryState(id: UUID())
-    
+
+    func extractJournalEntryFromInput() -> JournalEntryState {
+        var updateJournalEntry =
+            state.journalList.journalEntryList.first(where: { $0.id == journalId })
+            ?? JournalEntryState(id: UUID())
+
         updateJournalEntry.journalEntryName = journalName
         updateJournalEntry.questionsAndAnswers = questions.map {
             QuestionAndAnswerState(id: UUID(), question: $0.text, answer: $0.answer ?? "")
@@ -55,5 +57,5 @@ class QuestionListViewModel: ObservableObject {
         state.SaveJournalData(entry: updatedJournalEntry)
         clearInputs()
     }
-    
+
 }

@@ -3,7 +3,7 @@ import SwiftUI
 struct Question: Codable, Identifiable {
     let id: UUID
     let text: String
-    var answer: String? = nil // To store the user's input
+    var answer: String? = nil  // To store the user's input
 
     enum CodingKeys: String, CodingKey {
         case text

@@ -7,13 +7,12 @@
 
 import Foundation
 
-
 struct JournalEntryState: Codable, Identifiable {
-    let id: UUID // Add unique ID
+    let id: UUID  // Add unique ID
     var journalEntryName: String = ""
     var questionsAndAnswers: [QuestionAndAnswerState] = []
 
-    init (id: UUID = UUID()){
+    init(id: UUID = UUID()) {
         self.id = id
     }
     // Add an initializer

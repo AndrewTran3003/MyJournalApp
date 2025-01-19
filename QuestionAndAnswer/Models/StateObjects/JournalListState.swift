@@ -8,6 +8,6 @@ import Foundation
 
 class JournalListState: ObservableObject {
     @Published var journalEntryList: [JournalEntryState] = []
-    
+
     init() {}
 }
