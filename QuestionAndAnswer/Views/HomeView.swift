@@ -34,9 +34,7 @@ struct HomeView: View {
                 NavigationLink(
                     destination: QuestionListView(viewModel: QuestionListViewModel(state: state))
                 ) {
-                    Image(systemName: "plus.circle.fill")
-                        .font(.largeTitle)
-                        .padding()
+                    AddButtonView()
                 }
 
                 Spacer()

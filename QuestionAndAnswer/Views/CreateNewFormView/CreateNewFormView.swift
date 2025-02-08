@@ -8,7 +8,7 @@ struct CreateNewFormView: View {
         NavigationView {
             VStack(alignment: .leading) {
                 NewFormNameView(viewModel: viewModel)
-                NewFieldView(viewModel: viewModel)
+                NewFieldListView(viewModel: viewModel)
             }
             .padding()
             .navigationTitle("Create a new form")
