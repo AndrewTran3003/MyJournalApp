@@ -9,9 +9,11 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var state: AppState  // Add environment object
+    @State private var isShowingQuestionList = false  // Add state for navigation
 
     var body: some View {
-        NavigationView {
+
+        NavigationStack {
             VStack {
                 List {
                     // Existing code to display the list of people
@@ -30,16 +32,12 @@ struct HomeView: View {
                     }
                 }
                 Spacer()
-                // Modified NavigationLink code to pass the person data into the QuestionListView
-                NavigationLink(
-                    destination: QuestionListView(viewModel: QuestionListViewModel(state: state))
-                ) {
-                    Image(systemName: "plus.circle.fill")
-                        .font(.largeTitle)
-                        .padding()
+                AddButtonView {
+                    isShowingQuestionList = true
                 }
-
-                Spacer()
+            }
+            .navigationDestination(isPresented: $isShowingQuestionList) {
+                QuestionListView(viewModel: QuestionListViewModel(state: state))
             }
             .navigationTitle("Home")
         }
