@@ -6,12 +6,11 @@
 //
 import SwiftUI
 
-
 struct NewFieldListView: View {
     @ObservedObject var viewModel: CreateNewFormViewModel
 
     var body: some View {
-        ScrollView{
+        ScrollView {
             NewFieldView(viewModel: viewModel)
             AddButtonView()
         }
