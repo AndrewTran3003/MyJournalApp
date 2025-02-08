@@ -8,11 +8,14 @@ import SwiftUI
 
 struct NewFieldListView: View {
     @ObservedObject var viewModel: CreateNewFormViewModel
+    @Binding var newFieldCount: Int
 
     var body: some View {
-        ScrollView {
-            NewFieldView(viewModel: viewModel)
-            AddButtonView()
+
+        VStack {
+            ForEach(0..<newFieldCount, id: \.self) { _ in
+                NewFieldView(viewModel: viewModel)
+            }
         }
     }
 }
