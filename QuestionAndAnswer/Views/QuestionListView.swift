@@ -41,7 +41,7 @@ struct QuestionListView: View {
                     }
                     .ignoresSafeArea(.keyboard, edges: .bottom)
 
-                    SaveButton {
+                    SaveButtonView {
                         viewModel.saveData()
                     }
                     .padding()

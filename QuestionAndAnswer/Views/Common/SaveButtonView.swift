@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-struct SaveButton: View {
+struct SaveButtonView: View {
     let action: (() -> Void)?
 
     init(action: (() -> Void)? = nil) {
