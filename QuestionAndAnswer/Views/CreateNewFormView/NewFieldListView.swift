@@ -14,7 +14,7 @@ struct NewFieldListView: View {
 
         VStack {
             ForEach(0..<newFieldCount, id: \.self) { _ in
-                NewFieldView(viewModel: viewModel)
+                NewFieldView(viewModel: viewModel, newFieldCount: self.$newFieldCount)
             }
         }
     }
