@@ -3,7 +3,7 @@ import SwiftUI
 struct CreateNewFormView: View {
     @ObservedObject var viewModel: CreateNewFormViewModel
     @EnvironmentObject var state: AppState
-    @State private var newFieldCount = 0
+    @State private var newFieldCount = 1
 
     var body: some View {
         NavigationView {
@@ -13,9 +13,9 @@ struct CreateNewFormView: View {
                     NewFieldListView(viewModel: viewModel, newFieldCount: self.$newFieldCount)
                     AddNewFieldButtonView(newFieldCount: self.$newFieldCount)
                 }
+                .background(Color.gray.opacity(0.1))
                 SaveButtonView()
             }
-            .padding()
             .navigationTitle("Create a new form")
         }
     }

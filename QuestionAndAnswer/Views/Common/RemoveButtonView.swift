@@ -20,7 +20,6 @@ struct RemoveButtonView: View {
             Image(systemName: "minus.circle.fill")
                 .foregroundColor(.red)
                 .font(.largeTitle)
-                .padding()
         }
 
     }

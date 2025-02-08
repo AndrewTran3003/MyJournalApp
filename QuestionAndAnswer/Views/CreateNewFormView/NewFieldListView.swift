@@ -11,11 +11,11 @@ struct NewFieldListView: View {
     @Binding var newFieldCount: Int
 
     var body: some View {
-
         VStack {
             ForEach(0..<newFieldCount, id: \.self) { _ in
                 NewFieldView(viewModel: viewModel, newFieldCount: self.$newFieldCount)
             }
+            .padding()
         }
     }
 }

@@ -11,12 +11,14 @@ struct NewFormNameView: View {
     @ObservedObject var viewModel: CreateNewFormViewModel
 
     var body: some View {
-        Text("Form name")
-            .font(.headline)
-            .padding(.top)
-            .frame(maxWidth: .infinity, alignment: .leading)
-        TextField("Enter form name here", text: $viewModel.formName)
-            .textFieldStyle(RoundedBorderTextFieldStyle())
-            .padding()
+        VStack{
+            Text("Form name")
+                .font(.headline)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            TextField("Enter form name here", text: $viewModel.formName)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+        }
+        .padding()
+        
     }
 }
