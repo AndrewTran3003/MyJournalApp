@@ -12,7 +12,7 @@ struct AddNewFieldButtonView: View {
     var body: some View {
         HStack {
             Spacer()
-            AddButtonView {
+            AddButton {
                 newFieldCount += 1
             }
             Spacer()

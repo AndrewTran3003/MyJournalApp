@@ -4,7 +4,7 @@
 //
 //  Created by Andrew Tran on 9/2/2025.
 //
-enum FieldType: String, CaseIterable {
+enum FieldType: String, CaseIterable, Codable {
     case singleLineText = "Single Line Text"
     case multiLineText = "Multi Line Text"
     case radioSelection = "Radio Selection"

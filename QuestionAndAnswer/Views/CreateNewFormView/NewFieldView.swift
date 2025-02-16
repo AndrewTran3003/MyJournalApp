@@ -12,7 +12,7 @@ struct NewFieldView: View {
                 Text("Field Name")
                     .font(.headline)
                 Spacer()
-                RemoveButtonView {
+                RemoveButton {
                     if newFieldCount > 0 {
                         newFieldCount -= 1
                     }

@@ -32,7 +32,7 @@ struct HomeView: View {
                     }
                 }
                 Spacer()
-                AddButtonView {
+                AddButton {
                     isShowingQuestionList = true
                 }
             }

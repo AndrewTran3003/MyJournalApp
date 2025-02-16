@@ -14,7 +14,7 @@ struct CreateNewFormView: View {
                     AddNewFieldButtonView(newFieldCount: self.$newFieldCount)
                 }
                 .background(Color.gray.opacity(0.1))
-                SaveButtonView()
+                SaveButton()
             }
             .navigationTitle("Create a new form")
         }
