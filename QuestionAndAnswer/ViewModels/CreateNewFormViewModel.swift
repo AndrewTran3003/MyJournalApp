@@ -6,10 +6,25 @@ class CreateNewFormViewModel: ObservableObject {
     // Add the new published properties
     @Published var formName: String = ""
     @Published var title: String = ""
+    @Published private var fieldCount = 1
 
     @Published var selectedFieldType: FieldType = .singleLineText
 
     init(state: AppState) {
         self.state = state
     }
+
+    func increaseFieldCount() {
+        fieldCount += 1
+    }
+
+    func decreaseFieldCount() {
+        if fieldCount > 0 {
+            fieldCount -= 1
+        }
+    }
+    func getFieldCount() -> Int {
+        return fieldCount
+    }
+
 }

@@ -4,7 +4,6 @@ struct NewFieldView: View {
     @ObservedObject var viewModel: CreateNewFormViewModel
     @State private var fieldName: String = ""
     @State private var selectedFieldType: FieldType = .singleLineText
-    @Binding var newFieldCount: Int
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -13,9 +12,7 @@ struct NewFieldView: View {
                     .font(.headline)
                 Spacer()
                 RemoveButton {
-                    if newFieldCount > 0 {
-                        newFieldCount -= 1
-                    }
+                    viewModel.decreaseFieldCount()
                 }
             }
 
