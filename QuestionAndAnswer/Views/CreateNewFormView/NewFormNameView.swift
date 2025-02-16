@@ -11,7 +11,7 @@ struct NewFormNameView: View {
     @ObservedObject var viewModel: CreateNewFormViewModel
 
     var body: some View {
-        VStack{
+        VStack {
             Text("Form name")
                 .font(.headline)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -19,6 +19,6 @@ struct NewFormNameView: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
         }
         .padding()
-        
+
     }
 }

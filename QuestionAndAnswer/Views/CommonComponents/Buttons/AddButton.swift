@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AddButtonView: View {
+struct AddButton: View {
     let action: (() -> Void)?
 
     init(action: (() -> Void)? = nil) {

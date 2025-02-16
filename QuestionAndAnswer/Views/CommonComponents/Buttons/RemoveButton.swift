@@ -1,12 +1,12 @@
 //
-//  SaveButton.swift
+//  RemoveButtonView.swift
 //  QuestionAndAnswer
 //
 //  Created by Andrew Tran on 8/2/2025.
 //
 import SwiftUI
 
-struct SaveButtonView: View {
+struct RemoveButton: View {
     let action: (() -> Void)?
 
     init(action: (() -> Void)? = nil) {
@@ -17,13 +17,10 @@ struct SaveButtonView: View {
         Button(action: {
             action?()
         }) {
-            Text("Save")
-                .foregroundColor(.white)
-                .padding()
-                .frame(maxWidth: .infinity)
-                .background(Color.blue)
-                .cornerRadius(10)
+            Image(systemName: "minus.circle.fill")
+                .foregroundColor(.red)
+                .font(.largeTitle)
         }
-        .padding()
+
     }
 }

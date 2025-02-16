@@ -8,12 +8,11 @@ import SwiftUI
 
 struct NewFieldListView: View {
     @ObservedObject var viewModel: CreateNewFormViewModel
-    @Binding var newFieldCount: Int
 
     var body: some View {
         VStack {
-            ForEach(0..<newFieldCount, id: \.self) { _ in
-                NewFieldView(viewModel: viewModel, newFieldCount: self.$newFieldCount)
+            ForEach(0..<viewModel.getFieldCount(), id: \.self) { _ in
+                NewFieldView(viewModel: viewModel)
             }
             .padding()
         }

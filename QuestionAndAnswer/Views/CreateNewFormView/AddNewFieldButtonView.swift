@@ -7,13 +7,13 @@
 import SwiftUI
 
 struct AddNewFieldButtonView: View {
-    @Binding var newFieldCount: Int
+    @ObservedObject var viewModel: CreateNewFormViewModel
 
     var body: some View {
         HStack {
             Spacer()
-            AddButtonView {
-                newFieldCount += 1
+            AddButton {
+                viewModel.increaseFieldCount()
             }
             Spacer()
         }
