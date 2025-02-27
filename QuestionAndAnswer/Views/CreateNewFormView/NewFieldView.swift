@@ -23,12 +23,13 @@ struct NewFieldView: View {
             Text("Field Type")
                 .font(.headline)
 
-            Picker("", selection: $selectedFieldType) {
+            Picker("Pick field type", selection: $selectedFieldType) {
                 ForEach(FieldType.allCases, id: \.self) { type in
                     Text(type.rawValue).tag(type)
                 }
             }
             .pickerStyle(MenuPickerStyle())
+            .accessibilityIdentifier("fieldTypePicker")  // Add this line
         }
         .padding()
         .background(Color.white)
