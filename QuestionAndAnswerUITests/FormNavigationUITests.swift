@@ -61,6 +61,8 @@ class FormNavigationUITests: XCTestCase {
 
         let removeButtons = app.descendants(matching: .button)
             .matching(NSPredicate(format: "identifier == 'minus.circle.fill'")).count
+        let addButtons = app.descendants(matching: .button)
+            .matching(NSPredicate(format: "identifier == 'plus.circle.fill'")).count
 
         print("Remove buttons found: \(removeButtons)")
 
@@ -69,6 +71,7 @@ class FormNavigationUITests: XCTestCase {
         XCTAssertEqual(fieldNameInputs, 1, "Should have exactly one field name input")
         XCTAssertEqual(pickerElements, 1, "Should have exactly one field type picker")  // Use whichever approach works
         XCTAssertEqual(removeButtons, 1, "Should have exactly one remove button")
+        XCTAssertEqual(addButtons, 1, "Should have exactly one add button")
     }
 
     func testCreateNewFormScreenWithInteraction() throws {
