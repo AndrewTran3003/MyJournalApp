@@ -44,10 +44,11 @@ class FormNavigationUITests: XCTestCase {
         let formNameLabel = app.staticTexts["Form name"]
         let formNameInput = app.textFields["Enter form name here"]
         let fieldNameLabels = app.staticTexts.matching(identifier: "Field Name").count
-        let fieldTypeLabels = app.staticTexts.matching(identifier: "Field Type").count
-        let fieldNameInputs = app.textFields.matching(identifier: "Enter the field name here").count
+        let fieldTypeLabelCount = app.staticTexts.matching(identifier: "Field Type").count
+        let fieldNameInputCount = app.textFields.matching(identifier: "Enter the field name here")
+            .count
         let pickerElements = app.buttons.matching(identifier: "fieldTypePicker").count
-        let removeButtons = app.descendants(matching: .button)
+        let removeButtonCount = app.descendants(matching: .button)
             .matching(NSPredicate(format: "identifier == 'minus.circle.fill'")).count
         let addButtons = app.descendants(matching: .button)
             .matching(NSPredicate(format: "identifier == 'plus.circle.fill'")).count
@@ -59,10 +60,10 @@ class FormNavigationUITests: XCTestCase {
         XCTAssertTrue(navBar.waitForExistence(timeout: 2), "Navigation bar should be visible")
         XCTAssertTrue(formNameLabel.exists, "Form name label should be visible")
         XCTAssertEqual(fieldNameLabels, 1, "Should have exactly one Field Name label")
-        XCTAssertEqual(fieldTypeLabels, 1, "Should have exactly one Field Type label")
-        XCTAssertEqual(fieldNameInputs, 1, "Should have exactly one field name input")
+        XCTAssertEqual(fieldTypeLabelCount, 1, "Should have exactly one Field Type label")
+        XCTAssertEqual(fieldNameInputCount, 1, "Should have exactly one field name input")
         XCTAssertEqual(pickerElements, 1, "Should have exactly one field type picker")
-        XCTAssertEqual(removeButtons, 1, "Should have exactly one remove button")
+        XCTAssertEqual(removeButtonCount, 1, "Should have exactly one remove button")
         XCTAssertEqual(addButtons, 1, "Should have exactly one add button")
     }
 
@@ -83,34 +84,67 @@ class FormNavigationUITests: XCTestCase {
             "Text field should contain entered text")
     }
 
-    func testShouldHave3NewFieldViews() throws {
+    func testShouldHaveNoFieldWhenTappingOnTheRemoveButton() throws {
+        // Arrange
+        app.tabBars.buttons["Forms"].tap()
+        app.buttons["Create a new form"].tap()
+
+        let removeButton = app.descendants(matching: .button)
+            .matching(NSPredicate(format: "identifier == 'minus.circle.fill'"))
+            .firstMatch
+
+        // Act
+        removeButton.tap()
+
+        let fieldNameLabels = app.staticTexts.matching(identifier: "Field Name").count
+        let fieldNameInputCount = app.textFields.matching(identifier: "Enter the field name here")
+            .count
+
+        let fieldTypeLabelCount = app.staticTexts.matching(identifier: "Field Type").count
+        let fieldTypePickerCount = app.buttons.matching(identifier: "fieldTypePicker").count
+
+        let removeButtonCount = app.descendants(matching: .button)
+            .matching(NSPredicate(format: "identifier == 'minus.circle.fill'")).count
+
+        // Assert
+        XCTAssertEqual(fieldNameLabels, 0, "Should have exactly 0 Field Name label")
+        XCTAssertEqual(fieldNameInputCount, 0, "Should have exactly 0 field name input")
+
+        XCTAssertEqual(fieldTypeLabelCount, 0, "Should have exactly 0 Field Type label")
+        XCTAssertEqual(fieldTypePickerCount, 0, "Should have exactly 0 field type picker")
+
+        XCTAssertEqual(removeButtonCount, 0, "Should have exactly 0 remove button")
+
+    }
+    func testShouldHave3NewFieldViewsWhenTappingTheAddButtonTwice() throws {
         // Arrange
         app.tabBars.buttons["Forms"].tap()
         app.buttons["Create a new form"].tap()
         let addButton = app.descendants(matching: .button)
             .matching(NSPredicate(format: "identifier == 'plus.circle.fill'"))
             .firstMatch
-        
+
         // Act
         addButton.tap()
         addButton.tap()
 
-        let fieldNameLabels = app.staticTexts.matching(identifier: "Field Name").count
-        let fieldNameInputs = app.textFields.matching(identifier: "Enter the field name here").count
+        let fieldNameLabelCount = app.staticTexts.matching(identifier: "Field Name").count
+        let fieldNameInputCount = app.textFields.matching(identifier: "Enter the field name here")
+            .count
 
-        let fieldTypeLabels = app.staticTexts.matching(identifier: "Field Type").count
-        let fieldTypePickers = app.buttons.matching(identifier: "fieldTypePicker").count
+        let fieldTypeLabelCount = app.staticTexts.matching(identifier: "Field Type").count
+        let fieldTypePickerCount = app.buttons.matching(identifier: "fieldTypePicker").count
 
-        let removeButtons = app.descendants(matching: .button)
+        let removeButtonCount = app.descendants(matching: .button)
             .matching(NSPredicate(format: "identifier == 'minus.circle.fill'")).count
 
         // Assert
-        XCTAssertEqual(fieldNameLabels, 3, "Should have exactly 3 Field Name label")
-        XCTAssertEqual(fieldNameInputs, 3, "Should have exactly 3 field name input")
+        XCTAssertEqual(fieldNameLabelCount, 3, "Should have exactly 3 Field Name label")
+        XCTAssertEqual(fieldNameInputCount, 3, "Should have exactly 3 field name input")
 
-        XCTAssertEqual(fieldTypeLabels, 3, "Should have exactly 3 Field Type label")
-        XCTAssertEqual(fieldTypePickers, 3, "Should have exactly 3 field type picker")
+        XCTAssertEqual(fieldTypeLabelCount, 3, "Should have exactly 3 Field Type label")
+        XCTAssertEqual(fieldTypePickerCount, 3, "Should have exactly 3 field type picker")
 
-        XCTAssertEqual(removeButtons, 3, "Should have exactly 3 remove button")
+        XCTAssertEqual(removeButtonCount, 3, "Should have exactly 3 remove button")
     }
 }
