@@ -11,7 +11,7 @@ struct NewFieldListView: View {
 
     var body: some View {
         VStack {
-            ForEach(0..<viewModel.getFieldCount(), id: \.self) { _ in
+            ForEach(0..<viewModel.fieldCount, id: \.self) { _ in
                 NewFieldView(viewModel: viewModel)
             }
             .padding()
