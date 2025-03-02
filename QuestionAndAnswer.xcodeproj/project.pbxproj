@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A43D27C32D7411CF00A20E4C /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A43D27C22D7411CF00A20E4C /* Media.xcassets */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		A428E2A52D312DAE001F6005 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,7 @@
 		A428E2932D312DAC001F6005 /* QuestionAndAnswer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuestionAndAnswer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A428E2A42D312DAE001F6005 /* QuestionAndAnswerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuestionAndAnswerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A428E2AE2D312DAE001F6005 /* QuestionAndAnswerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuestionAndAnswerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A43D27C22D7411CF00A20E4C /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +80,7 @@
 		A428E28A2D312DAC001F6005 = {
 			isa = PBXGroup;
 			children = (
+				A43D27C22D7411CF00A20E4C /* Media.xcassets */,
 				A428E2952D312DAC001F6005 /* QuestionAndAnswer */,
 				A428E2A72D312DAE001F6005 /* QuestionAndAnswerTests */,
 				A428E2B12D312DAE001F6005 /* QuestionAndAnswerUITests */,
@@ -212,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A43D27C32D7411CF00A20E4C /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
