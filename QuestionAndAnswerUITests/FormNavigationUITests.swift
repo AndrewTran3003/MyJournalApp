@@ -82,4 +82,35 @@ class FormNavigationUITests: XCTestCase {
             textField.value as? String, "Test Entering Form Name",
             "Text field should contain entered text")
     }
+
+    func testShouldHave3NewFieldViews() throws {
+        // Arrange
+        app.tabBars.buttons["Forms"].tap()
+        app.buttons["Create a new form"].tap()
+        let addButton = app.descendants(matching: .button)
+            .matching(NSPredicate(format: "identifier == 'plus.circle.fill'"))
+            .firstMatch
+        
+        // Act
+        addButton.tap()
+        addButton.tap()
+
+        let fieldNameLabels = app.staticTexts.matching(identifier: "Field Name").count
+        let fieldNameInputs = app.textFields.matching(identifier: "Enter the field name here").count
+
+        let fieldTypeLabels = app.staticTexts.matching(identifier: "Field Type").count
+        let fieldTypePickers = app.buttons.matching(identifier: "fieldTypePicker").count
+
+        let removeButtons = app.descendants(matching: .button)
+            .matching(NSPredicate(format: "identifier == 'minus.circle.fill'")).count
+
+        // Assert
+        XCTAssertEqual(fieldNameLabels, 3, "Should have exactly 3 Field Name label")
+        XCTAssertEqual(fieldNameInputs, 3, "Should have exactly 3 field name input")
+
+        XCTAssertEqual(fieldTypeLabels, 3, "Should have exactly 3 Field Type label")
+        XCTAssertEqual(fieldTypePickers, 3, "Should have exactly 3 field type picker")
+
+        XCTAssertEqual(removeButtons, 3, "Should have exactly 3 remove button")
+    }
 }
