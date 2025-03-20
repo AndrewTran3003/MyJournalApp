@@ -2,8 +2,9 @@ import SwiftUI
 
 struct NewFieldView: View {
     @ObservedObject var viewModel: CreateNewFormViewModel
-    @State private var fieldName: String = ""
-    @State private var selectedFieldType: FieldType = .singleLineText
+    @Binding var field: FormField
+    let index: Int
+    @State private var selectedFieldType: FieldType = FieldType.singleLineText
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -12,18 +13,18 @@ struct NewFieldView: View {
                     .font(.headline)
                 Spacer()
                 RemoveButton {
-                    viewModel.decreaseFieldCount()
+                    viewModel.removeField(at: index)
                 }
             }
 
-            TextField("Enter the field name here", text: $fieldName)
+            TextField("Enter the field name here", text: $field.fieldName)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
 
             Text("Field Type")
                 .font(.headline)
 
-            Picker("Pick field type", selection: $selectedFieldType) {
+            Picker("Pick field type", selection: $field.fieldType) {
                 ForEach(FieldType.allCases, id: \.self) { type in
                     Text(type.rawValue).tag(type)
                 }

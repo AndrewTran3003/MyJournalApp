@@ -13,7 +13,7 @@ struct AddNewFieldButtonView: View {
         HStack {
             Spacer()
             AddButton {
-                viewModel.increaseFieldCount()
+                viewModel.addNewField()
             }
             Spacer()
         }

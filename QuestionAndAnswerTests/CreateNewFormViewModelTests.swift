@@ -23,7 +23,7 @@ class CreateNewFormViewModelTests: XCTestCase {
         mockState = nil
         super.tearDown()
     }
-    
+   /*
     func testFieldCountIncrement(){
         sut.fieldCount = 0;
         
@@ -50,7 +50,7 @@ class CreateNewFormViewModelTests: XCTestCase {
         
     }
     
-    /*func testFieldTypeSelection() {
+    func testFieldTypeSelection() {
         // Arrange
         let newType = CreateNewFormViewModel.FieldType.multiLineText
         

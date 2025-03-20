@@ -21,6 +21,11 @@ struct FormListView: View {
                     ) {
                         Text("Create a new form")
                     }
+                    .simultaneousGesture(TapGesture().onEnded {
+                        let newForm = Form(formName: "Untitled form", fields: [FormField(fieldName: "Default Field", fieldType: FieldType.singleLineText)])
+                        state.formList.forms.append(newForm)
+                        state.formList.activeFormId = newForm.id
+                    })
                 }
             }
             .navigationTitle("Forms")
