@@ -19,16 +19,16 @@ struct FormListView: View {
                         destination: CreateNewFormView(
                             viewModel: CreateNewFormViewModel(state: state))
                     ) {
-                        Text("Create a new form")
+                        Text(StringConstants.Form.createANewFormTitle)
                     }
                     .simultaneousGesture(TapGesture().onEnded {
-                        let newForm = Form(formName: "Untitled form", fields: [FormField(fieldName: "Default Field", fieldType: FieldType.singleLineText)])
+                        let newForm = Form(formName: StringConstants.Form.FormName.formNameUntitled, fields: [FormField(fieldName: "Default Field", fieldType: FieldType.singleLineText)])
                         state.formList.forms.append(newForm)
                         state.formList.activeFormId = newForm.id
                     })
                 }
             }
-            .navigationTitle("Forms")
+            .navigationTitle(StringConstants.Navigation.forms)
         }
     }
 }

@@ -18,7 +18,7 @@ struct CreateNewFormView: View {
                     .background(Color.gray.opacity(0.1))
                     SaveButton()
                 }
-                .navigationTitle("Create a new form")
+                .navigationTitle(StringConstants.Form.createANewFormTitle)
             }
         }
     }
