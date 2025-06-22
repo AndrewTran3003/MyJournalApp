@@ -4,17 +4,23 @@ struct CreateNewFormView: View {
     @ObservedObject var viewModel: CreateNewFormViewModel
 
     var body: some View {
-        NavigationView {
-            VStack(alignment: .leading) {
-                NewFormNameView(viewModel: viewModel)
-                ScrollView {
-                    NewFieldListView(viewModel: viewModel)
-                    AddNewFieldButtonView(viewModel: viewModel)
+        let activeForm = viewModel.getActiveForm()
+        if activeForm != nil {
+            NavigationView {
+                VStack(alignment: .leading) {
+                    NewFormNameView(form: Binding(
+                        get: { activeForm! },
+                        set: { _ in }  // Handle form name updates in NewFormNameView
+                    ))
+                    ScrollView {
+                        NewFieldListView(viewModel: viewModel)
+                        AddNewFieldButtonView(viewModel: viewModel)
+                    }
+                    .background(Color.gray.opacity(0.1))
+                    SaveButton()
                 }
-                .background(Color.gray.opacity(0.1))
-                SaveButton()
+                .navigationTitle(StringConstants.Form.createANewFormTitle)
             }
-            .navigationTitle("Create a new form")
         }
     }
 }

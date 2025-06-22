@@ -2,7 +2,7 @@ import Foundation
 
 class AppState: ObservableObject {
     @Published var journalList: JournalListState
-    
+    @Published var formList : FormList = FormList()
 
     init(peopleDataList: JournalListState = JournalListState()) {
         self.journalList = peopleDataList

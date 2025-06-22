@@ -1,26 +1,54 @@
 import SwiftUI
 
 class CreateNewFormViewModel: ObservableObject {
-    private var state: AppState
-
-    // Add the new published properties
-    @Published var formName: String = ""
-    @Published var title: String = ""
-    @Published var fieldCount = 1
-
-    @Published var selectedFieldType: FieldType = .singleLineText
-
+    @Published private var state: AppState
+    
     init(state: AppState) {
         self.state = state
     }
-
-    func increaseFieldCount() {
-        fieldCount += 1
+    
+    // Get active form
+    func getActiveForm() -> Form? {
+        return state.formList.forms.first { $0.id == state.formList.activeFormId }
     }
-
-    func decreaseFieldCount() {
-        if fieldCount > 0 {
-            fieldCount -= 1
+    
+    // Add new field
+    func addNewField() {
+        if var activeForm = getActiveForm() {
+            let newField = FormField(fieldName: "", fieldType: .singleLineText)
+            activeForm.fields.append(newField)
+            updateForm(activeForm)
+        }
+    }
+    
+    // Update field name
+    func updateFieldName(at index: Int, name: String) {
+        if var activeForm = getActiveForm() {
+            activeForm.fields[index].fieldName = name
+            updateForm(activeForm)
+        }
+    }
+    
+    // Update field type
+    func updateFieldType(at index: Int, type: FieldType) {
+        if var activeForm = getActiveForm() {
+            activeForm.fields[index].fieldType = type
+            updateForm(activeForm)
+        }
+    }
+    
+    // Remove field
+    func removeField(at index: Int) {
+        if var activeForm = getActiveForm() {
+            activeForm.fields.remove(at: index)
+            updateForm(activeForm)
+        }
+    }
+    
+    // Helper to update form in state
+    func updateForm(_ updatedForm: Form) {
+        if let index = state.formList.forms.firstIndex(where: { $0.id == updatedForm.id }) {
+            state.formList.forms[index] = updatedForm
         }
     }
 }
