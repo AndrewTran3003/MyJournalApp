@@ -4,11 +4,13 @@ struct CreateNewFormView: View {
     @ObservedObject var viewModel: CreateNewFormViewModel
 
     var body: some View {
-        if let activeForm = viewModel.getActiveForm() {
+        let activeForm = viewModel.getActiveForm()
+        let _ = print(activeForm?.id)
+        if activeForm != nil {
             NavigationView {
                 VStack(alignment: .leading) {
                     NewFormNameView(form: Binding(
-                        get: { activeForm },
+                        get: { activeForm! },
                         set: { _ in }  // Handle form name updates in NewFormNameView
                     ))
                     ScrollView {
