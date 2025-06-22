@@ -5,7 +5,6 @@ struct CreateNewFormView: View {
 
     var body: some View {
         let activeForm = viewModel.getActiveForm()
-        let _ = print(activeForm?.id)
         if activeForm != nil {
             NavigationView {
                 VStack(alignment: .leading) {
