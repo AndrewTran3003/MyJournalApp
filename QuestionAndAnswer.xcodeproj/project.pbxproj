@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A423BE602E07CDE70088A198 /* QuestionAndAnswer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A423BE5E2E07CDE70088A198 /* QuestionAndAnswer.xcdatamodeld */; };
 		A43D27C32D7411CF00A20E4C /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A43D27C22D7411CF00A20E4C /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A423BE5F2E07CDE70088A198 /* QuestionAndAnswer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuestionAndAnswer.xcdatamodel; sourceTree = "<group>"; };
 		A428E2932D312DAC001F6005 /* QuestionAndAnswer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuestionAndAnswer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A428E2A42D312DAE001F6005 /* QuestionAndAnswerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuestionAndAnswerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A428E2AE2D312DAE001F6005 /* QuestionAndAnswerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuestionAndAnswerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +82,7 @@
 		A428E28A2D312DAC001F6005 = {
 			isa = PBXGroup;
 			children = (
+				A423BE5E2E07CDE70088A198 /* QuestionAndAnswer.xcdatamodeld */,
 				A43D27C22D7411CF00A20E4C /* Media.xcassets */,
 				A428E2952D312DAC001F6005 /* QuestionAndAnswer */,
 				A428E2A72D312DAE001F6005 /* QuestionAndAnswerTests */,
@@ -243,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A423BE602E07CDE70088A198 /* QuestionAndAnswer.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,6 +600,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A423BE5E2E07CDE70088A198 /* QuestionAndAnswer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A423BE5F2E07CDE70088A198 /* QuestionAndAnswer.xcdatamodel */,
+			);
+			currentVersion = A423BE5F2E07CDE70088A198 /* QuestionAndAnswer.xcdatamodel */;
+			path = QuestionAndAnswer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A428E28B2D312DAC001F6005 /* Project object */;
 }
