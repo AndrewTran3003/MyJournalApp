@@ -23,6 +23,11 @@ struct RootView: View {
                     Label("Forms", systemImage: "folder")
                 }
                 .environmentObject(state)
+            ChatRootView()
+                .tabItem {
+                    Label("Chat", systemImage: "bubble.left.and.bubble.right")
+                }
+                .environmentObject(state)
             Text("Coming Soon")
                 .tabItem {
                     Image(systemName: "gear")
