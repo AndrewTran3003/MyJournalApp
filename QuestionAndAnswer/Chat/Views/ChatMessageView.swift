@@ -98,5 +98,6 @@ struct PulsingDotsView: View {
             self.scale = 0.5
         }
         .padding()
+        .accessibilityIdentifier("PulsingDotsView") // <-- Add this line
     }
-} 
+}

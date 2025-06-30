@@ -18,8 +18,18 @@ struct ChatRootView: View {
                     } label: {
                         Text(conversation.title ?? "New Conversation")
                     }
+                    .accessibilityIdentifier("ConversationCell")
+                    .swipeActions {
+                        Button(role: .destructive, action: {
+                            if let index = conversations.firstIndex(of: conversation) {
+                                deleteConversations(offsets: IndexSet(integer: index))
+                            }
+                        }) {
+                            Label("Delete", systemImage: "trash")
+                        }
+                        .accessibilityIdentifier("DeleteConversationButton")
+                    }
                 }
-                .onDelete(perform: deleteConversations)
             }
             .navigationTitle("Conversations")
             .toolbar {
