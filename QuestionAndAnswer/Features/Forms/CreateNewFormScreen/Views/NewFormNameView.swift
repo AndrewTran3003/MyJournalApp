@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct NewFormNameView: View {
-    @Binding var form: Form
+    @Binding var formName: String
+    
 
     var body: some View {
         VStack {
             Text(Constants.Form.FormName.formNameLabel)
                 .font(.headline)
                 .frame(maxWidth: .infinity, alignment: .leading)
-            TextField(Constants.Form.FormName.formNamePlaceholder, text: $form.formName)
+            TextField(Constants.Form.FormName.formNamePlaceholder, text: $formName)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
         }
         .padding()
