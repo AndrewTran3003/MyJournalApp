@@ -4,7 +4,7 @@ struct CreateNewFormView: View {
     @ObservedObject var viewModel: CreateNewFormViewModel
 
     var body: some View {
-        var activeForm = viewModel.getActiveForm()
+        let activeForm = viewModel.getActiveForm()
         if activeForm != nil {
             NavigationView {
                 VStack(alignment: .leading) {
@@ -16,7 +16,11 @@ struct CreateNewFormView: View {
                     ))
                     ScrollView {
                         LazyVStack(spacing: 16) {
-                            NewFieldListView(viewModel: viewModel)
+                            NewFieldListView(viewModel: viewModel, formFields: Binding(
+                                get: {activeForm?.fields ?? []},
+                                set: { formFields in
+                                    viewModel.updateFields(fields: formFields)
+                                }))
                             AddNewFieldButtonView(viewModel: viewModel)
                         }
                         .padding()
