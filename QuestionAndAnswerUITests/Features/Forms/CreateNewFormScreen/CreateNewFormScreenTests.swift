@@ -69,7 +69,7 @@ class CreateNewFormScreenTests: XCTestCase {
         
         formNameField.typeText(expectedFormName)
         
-        // Simulate hitting return/enter key
+        // Typing "return" in the keyboard
         formNameField.typeText("\n")
         
 

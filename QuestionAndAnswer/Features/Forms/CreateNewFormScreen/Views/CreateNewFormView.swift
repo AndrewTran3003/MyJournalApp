@@ -11,8 +11,7 @@ struct CreateNewFormView: View {
                     NewFormNameView(formName: Binding(
                         get: { activeForm!.formName },
                         set: { formName in
-                            activeForm?.formName = formName
-                            viewModel.updateForm(activeForm!)
+                            viewModel.updateFormName(formName: formName)
                         }
                     ))
                     ScrollView {

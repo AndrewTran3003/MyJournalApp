@@ -37,6 +37,12 @@ class CreateNewFormViewModel: ObservableObject {
         }
     }
     
+    func updateFormName(formName: String){
+        if var activeForm = getActiveForm() {
+            activeForm.formName = formName
+            updateForm(activeForm)
+        }
+    }
     // Remove field
     func removeField(at index: Int) {
         if var activeForm = getActiveForm() {
