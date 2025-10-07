@@ -33,7 +33,7 @@ struct ChatRootView: View {
             }
             .navigationTitle("Conversations")
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .primaryAction) {
                     Button(action: addConversation) {
                         Label("Add Conversation", systemImage: "plus")
                     }

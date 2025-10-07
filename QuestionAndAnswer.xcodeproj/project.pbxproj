@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A423BE602E07CDE70088A198 /* QuestionAndAnswer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A423BE5E2E07CDE70088A198 /* QuestionAndAnswer.xcdatamodeld */; };
 		A43D27C32D7411CF00A20E4C /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A43D27C22D7411CF00A20E4C /* Media.xcassets */; };
+		A46B92EB2E1E8A2500C85691 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = A46B92EA2E1E8A2500C85691 /* MarkdownUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A46B92EB2E1E8A2500C85691 /* MarkdownUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +89,7 @@
 				A428E2952D312DAC001F6005 /* QuestionAndAnswer */,
 				A428E2A72D312DAE001F6005 /* QuestionAndAnswerTests */,
 				A428E2B12D312DAE001F6005 /* QuestionAndAnswerUITests */,
+				A46B92E92E1E8A1F00C85691 /* Frameworks */,
 				A428E2942D312DAC001F6005 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -99,6 +102,13 @@
 				A428E2AE2D312DAE001F6005 /* QuestionAndAnswerUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		A46B92E92E1E8A1F00C85691 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -121,6 +131,7 @@
 			);
 			name = QuestionAndAnswer;
 			packageProductDependencies = (
+				A46B92EA2E1E8A2500C85691 /* MarkdownUI */,
 			);
 			productName = QuestionAndAnswer;
 			productReference = A428E2932D312DAC001F6005 /* QuestionAndAnswer.app */;
@@ -204,6 +215,9 @@
 			);
 			mainGroup = A428E28A2D312DAC001F6005;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				A46B927A2E1E88DA00C85691 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A428E2942D312DAC001F6005 /* Products */;
 			projectDirPath = "";
@@ -600,6 +614,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A46B927A2E1E88DA00C85691 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gonzalezreal/swift-markdown-ui";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.4.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A46B92EA2E1E8A2500C85691 /* MarkdownUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A46B927A2E1E88DA00C85691 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */;
+			productName = MarkdownUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		A423BE5E2E07CDE70088A198 /* QuestionAndAnswer.xcdatamodeld */ = {

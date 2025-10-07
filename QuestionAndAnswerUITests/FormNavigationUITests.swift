@@ -72,15 +72,15 @@ class FormNavigationUITests: XCTestCase {
         app.tabBars.buttons["Forms"].tap()
         let createNewFormButton = app.buttons["Create a new form"]
         createNewFormButton.tap()
-        let textField = app.textFields["Enter form name here"]
+        let formNameField = app.textFields["Enter form name here"]
 
         // Act
-        textField.tap()
-        textField.typeText("Test Entering Form Name")
+        formNameField.tap()
+        formNameField.typeText("Test Entering Form Name")
 
         // Assert
         XCTAssertEqual(
-            textField.value as? String, "Test Entering Form Name",
+            formNameField.value as? String, "Test Entering Form Name",
             "Text field should contain entered text")
     }
 

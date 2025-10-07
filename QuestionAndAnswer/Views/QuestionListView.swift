@@ -46,7 +46,7 @@ struct QuestionListView: View {
                     }
                     .padding()
                 }
-                .frame(maxWidth: min(600, UIScreen.main.bounds.width - 32))
+                .frame(maxWidth: min(600, geometry.size.width - 32))
                 .background(Color.white.opacity(0.9))
                 .cornerRadius(15)
                 .shadow(radius: 10)
@@ -59,11 +59,7 @@ struct QuestionListView: View {
             ToolbarItemGroup(placement: .keyboard) {
                 Spacer()
                 Button("Done") {
-                    UIApplication.shared.sendAction(
-                        #selector(UIResponder.resignFirstResponder),
-                        to: nil,
-                        from: nil,
-                        for: nil)
+                    hideKeyboard()
                 }
             }
         }
@@ -77,5 +73,15 @@ extension Binding {
             get: { self.wrappedValue ?? "" },
             set: { self.wrappedValue = $0.isEmpty ? nil : $0 }
         )
+    }
+}
+
+extension View {
+    func hideKeyboard() {
+        #if os(iOS)
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        #elseif os(macOS)
+        NSApp.keyWindow?.makeFirstResponder(nil)
+        #endif
     }
 }

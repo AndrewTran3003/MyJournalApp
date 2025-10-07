@@ -4,3 +4,4 @@
 *.xcbkptlist
 QuestionAndAnswer.xcodeproj/project.xcworkspace/xcuserdata/andrewtran.xcuserdatad/UserInterfaceState.xcuserstate
 QuestionAndAnswer.xcodeproj/xcuserdata/andrewtran.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
+*.xcscheme
