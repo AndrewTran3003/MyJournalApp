@@ -13,8 +13,11 @@ struct CreateNewFormView: View {
                         set: { _ in }  // Handle form name updates in NewFormNameView
                     ))
                     ScrollView {
-                        NewFieldListView(viewModel: viewModel)
-                        AddNewFieldButtonView(viewModel: viewModel)
+                        LazyVStack(spacing: 16) {
+                            NewFieldListView(viewModel: viewModel)
+                            AddNewFieldButtonView(viewModel: viewModel)
+                        }
+                        .padding()
                     }
                     .background(Color.gray.opacity(0.1))
                     SaveButton()
