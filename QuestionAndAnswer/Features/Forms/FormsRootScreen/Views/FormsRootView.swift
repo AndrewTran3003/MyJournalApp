@@ -7,7 +7,10 @@
 
 import SwiftUI
 
-struct FormListView: View {
+struct FormsRootView: View {
+    
+    @ObservedObject var viewModel: FormsRootViewModel
+
     @EnvironmentObject var state: AppState  // Add environment object
     @State private var navigateToCreateForm = false
 
@@ -19,12 +22,12 @@ struct FormListView: View {
                                isActive: $navigateToCreateForm) { EmptyView() }
 
                 List {
+                    ForEach(state.formList.forms) {form in
+                        Text(form.formName)
+                    }
                     Button(action: {
                         // 1. Create the new form and update the state.
-                        let newForm = Form(formName: Constants.Form.FormName.formNameUntitled, fields: [FormField(fieldName: "Default Field", fieldType: FieldType.singleLineText)])
-                        state.formList.forms.append(newForm)
-                        state.formList.activeFormId = newForm.id
-
+                        viewModel.addNewDefaultForm()
                         // 2. Trigger the navigation.
                         self.navigateToCreateForm = true
                     }) {
