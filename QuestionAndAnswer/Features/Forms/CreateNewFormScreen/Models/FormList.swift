@@ -15,6 +15,11 @@ struct FormList : Codable, Hashable, Equatable{
         self.forms = forms
     }
     
+    mutating func UpdateActiveForm(form: Form) {
+        if let index = forms.firstIndex(where: {$0.id == activeFormId}) {
+            forms[index] = form
+        }
+    }
     static func == (lhs: FormList, rhs: FormList) -> Bool {
         return lhs.forms == rhs.forms
     }

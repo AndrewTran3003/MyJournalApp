@@ -63,14 +63,7 @@ class CreateNewFormScreenTests: XCTestCase {
         let formNameField = app.textFields["Enter form name here"]
 
         // Act
-        formNameField.tap()
-        
-        formNameField.clearTextInput()
-        
-        formNameField.typeText(expectedFormName)
-        
-        // Typing "return" in the keyboard
-        formNameField.typeText("\n")
+        formNameField.clearTextAndEnterNewValue(newValue: expectedFormName)
         
 
         // Assert
@@ -127,11 +120,9 @@ class CreateNewFormScreenTests: XCTestCase {
         let fieldNameInputs = app.textFields.matching(identifier: "Enter the field name here")
             .allElementsBoundByIndex
 
-        fieldNameInputs[0].tap()
-        fieldNameInputs[0].typeText("Field to be removed")
+        fieldNameInputs[0].clearTextAndEnterNewValue(newValue: "Field to be removed")
 
-        fieldNameInputs[1].tap()
-        fieldNameInputs[1].typeText("Field to stay")
+        fieldNameInputs[1].clearTextAndEnterNewValue(newValue: "Field to stay")
 
         let removeButtons = app.descendants(matching: .button)
             .matching(NSPredicate(format: "identifier == 'minus.circle.fill'"))

@@ -10,17 +10,14 @@ struct CreateNewFormView: View {
                 VStack(alignment: .leading) {
                     NewFormNameView(formName: Binding(
                         get: { activeForm!.formName },
-                        set: { formName in
-                            viewModel.updateFormName(formName: formName)
-                        }
+                        set: { viewModel.updateFormName($0) }
                     ))
                     ScrollView {
                         LazyVStack(spacing: 16) {
                             NewFieldListView(viewModel: viewModel, formFields: Binding(
-                                get: {activeForm?.fields ?? []},
-                                set: { formFields in
-                                    viewModel.updateFields(fields: formFields)
-                                }))
+                                get: { activeForm?.fields ?? [] },
+                                set: { viewModel.updateFields($0) }
+                            ))
                             AddNewFieldButtonView(viewModel: viewModel)
                         }
                         .padding()

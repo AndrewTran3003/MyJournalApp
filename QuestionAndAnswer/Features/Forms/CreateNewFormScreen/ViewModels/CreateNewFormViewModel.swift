@@ -21,41 +21,25 @@ class CreateNewFormViewModel: ObservableObject {
         }
     }
     
-    // Update field name
-    func updateFieldName(at index: Int, name: String) {
+    // Generic form update method
+    func updateForm(_ update: (inout Form) -> Void) {
         if var activeForm = getActiveForm() {
-            activeForm.fields[index].fieldName = name
-            updateForm(activeForm)
+            update(&activeForm)
+            state.formList.UpdateActiveForm(form: activeForm)
         }
     }
     
-    // Update field type
-    func updateFieldType(at index: Int, type: FieldType) {
-        if var activeForm = getActiveForm() {
-            activeForm.fields[index].fieldType = type
-            updateForm(activeForm)
-        }
+    // Convenience methods for common operations
+    func updateFormName(_ name: String) {
+        updateForm { $0.formName = name }
     }
     
-    func updateFields (fields: [FormField]) {
-        if var activeForm = getActiveForm() {
-            activeForm.fields = fields
-            updateForm(activeForm)
-        }
-    }
-    
-    func updateFormName(formName: String){
-        if var activeForm = getActiveForm() {
-            activeForm.formName = formName
-            updateForm(activeForm)
-        }
+    func updateFields(_ fields: [FormField]) {
+        updateForm { $0.fields = fields }
     }
     // Remove field
     func removeField(at index: Int) {
-        if var activeForm = getActiveForm() {
-            activeForm.fields.remove(at: index)
-            updateForm(activeForm)
-        }
+        updateForm { $0.fields.remove(at: index) }
     }
     
     // Helper to update form in state
