@@ -54,11 +54,12 @@ class CreateNewFormScreenTests: XCTestCase {
         XCTAssertEqual(addButtons, 1, "Should have exactly one add button")
     }
 
-    func testShouldEnterFormName() throws {
+    func testShouldEnterFormName()  throws {
         // Arrange
+        let expectedFormName = "Test Entering Form Name"
         app.tabBars.buttons["Forms"].tap()
         let createNewFormButton = app.buttons["Create a new form"]
-        createNewFormButton.tap()
+         createNewFormButton.tap()
         let formNameField = app.textFields["Enter form name here"]
 
         // Act
@@ -66,11 +67,16 @@ class CreateNewFormScreenTests: XCTestCase {
         
         formNameField.clearTextInput()
         
-        formNameField.typeText("Test Entering Form Name")
+        formNameField.typeText(expectedFormName)
+        
+        // Simulate hitting return/enter key
+        formNameField.typeText("\n")
+        
 
         // Assert
+        let actualFormName =  formNameField.value as? String
         XCTAssertEqual(
-            formNameField.value as? String, "Test Entering Form Name",
+            actualFormName, expectedFormName,
             "Text field should contain entered text")
     }
 

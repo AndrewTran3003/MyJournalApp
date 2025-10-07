@@ -4,13 +4,16 @@ struct CreateNewFormView: View {
     @ObservedObject var viewModel: CreateNewFormViewModel
 
     var body: some View {
-        let activeForm = viewModel.getActiveForm()
+        var activeForm = viewModel.getActiveForm()
         if activeForm != nil {
             NavigationView {
                 VStack(alignment: .leading) {
-                    NewFormNameView(form: Binding(
-                        get: { activeForm! },
-                        set: { _ in }  // Handle form name updates in NewFormNameView
+                    NewFormNameView(formName: Binding(
+                        get: { activeForm!.formName },
+                        set: { formName in
+                            activeForm?.formName = formName
+                            viewModel.updateForm(activeForm!)
+                        }
                     ))
                     ScrollView {
                         LazyVStack(spacing: 16) {
@@ -20,7 +23,6 @@ struct CreateNewFormView: View {
                         .padding()
                     }
                     .background(Color.gray.opacity(0.1))
-                    SaveButton()
                 }
                 .navigationTitle(Constants.Form.createANewFormTitle)
             }
