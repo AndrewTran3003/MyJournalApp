@@ -22,7 +22,7 @@ struct CreateNewFormView: View {
                     .background(Color.gray.opacity(0.1))
                     SaveButton()
                 }
-                .navigationTitle(StringConstants.Form.createANewFormTitle)
+                .navigationTitle(Constants.Form.createANewFormTitle)
             }
         }
     }

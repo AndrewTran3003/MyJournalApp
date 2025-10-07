@@ -12,10 +12,10 @@ struct NewFormNameView: View {
 
     var body: some View {
         VStack {
-            Text(StringConstants.Form.FormName.formNameLabel)
+            Text(Constants.Form.FormName.formNameLabel)
                 .font(.headline)
                 .frame(maxWidth: .infinity, alignment: .leading)
-            TextField(StringConstants.Form.FormName.formNamePlaceholder, text: $form.formName)
+            TextField(Constants.Form.FormName.formNamePlaceholder, text: $form.formName)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
         }
         .padding()

@@ -21,14 +21,14 @@ struct FormListView: View {
                 List {
                     Button(action: {
                         // 1. Create the new form and update the state.
-                        let newForm = Form(formName: StringConstants.Form.FormName.formNameUntitled, fields: [FormField(fieldName: "Default Field", fieldType: FieldType.singleLineText)])
+                        let newForm = Form(formName: Constants.Form.FormName.formNameUntitled, fields: [FormField(fieldName: "Default Field", fieldType: FieldType.singleLineText)])
                         state.formList.forms.append(newForm)
                         state.formList.activeFormId = newForm.id
 
                         // 2. Trigger the navigation.
                         self.navigateToCreateForm = true
                     }) {
-                        Text(StringConstants.Form.createANewFormTitle)
+                        Text(Constants.Form.createANewFormTitle)
                     }
                 }
             }

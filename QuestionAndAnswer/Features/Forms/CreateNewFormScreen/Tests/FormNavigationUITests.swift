@@ -76,6 +76,9 @@ class FormNavigationUITests: XCTestCase {
 
         // Act
         formNameField.tap()
+        
+        formNameField.clearTextInput()
+        
         formNameField.typeText("Test Entering Form Name")
 
         // Assert

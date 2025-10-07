@@ -37,9 +37,30 @@
 		A43D27C22D7411CF00A20E4C /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		A4B9EDE82E94DF1E00FD18BB /* Exceptions for "QuestionAndAnswer" folder in "QuestionAndAnswer" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Features/Forms/CreateNewFormScreen/Tests/FormNavigationUITests.swift,
+			);
+			target = A428E2922D312DAC001F6005 /* QuestionAndAnswer */;
+		};
+		A4B9EDE92E94DF1E00FD18BB /* Exceptions for "QuestionAndAnswer" folder in "QuestionAndAnswerUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Features/Forms/CreateNewFormScreen/Tests/FormNavigationUITests.swift,
+			);
+			target = A428E2AD2D312DAE001F6005 /* QuestionAndAnswerUITests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		A428E2952D312DAC001F6005 /* QuestionAndAnswer */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				A4B9EDE82E94DF1E00FD18BB /* Exceptions for "QuestionAndAnswer" folder in "QuestionAndAnswer" target */,
+				A4B9EDE92E94DF1E00FD18BB /* Exceptions for "QuestionAndAnswer" folder in "QuestionAndAnswerUITests" target */,
+			);
 			path = QuestionAndAnswer;
 			sourceTree = "<group>";
 		};

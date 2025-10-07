@@ -9,7 +9,7 @@ struct NewFieldView: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text(StringConstants.Form.Field.fieldNameLabel)
+                Text(Constants.Form.Field.fieldNameLabel)
                     .font(.headline)
                 Spacer()
                 RemoveButton {
@@ -17,20 +17,20 @@ struct NewFieldView: View {
                 }
             }
 
-            TextField(StringConstants.Form.Field.fieldNamePlaceholder, text: $field.fieldName)
+            TextField(Constants.Form.Field.fieldNamePlaceholder, text: $field.fieldName)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
 
-            Text(StringConstants.Form.Field.fieldTypeLabel)
+            Text(Constants.Form.Field.fieldTypeLabel)
                 .font(.headline)
 
-            Picker(StringConstants.Form.Field.fieldTypePickerLabel, selection: $field.fieldType) {
+            Picker(Constants.Form.Field.fieldTypePickerLabel, selection: $field.fieldType) {
                 ForEach(FieldType.allCases, id: \.self) { type in
                     Text(type.rawValue).tag(type)
                 }
             }
             .pickerStyle(MenuPickerStyle())
-            .accessibilityIdentifier(StringConstants.Form.Field.fieldTypePickerIdentifier)
+            .accessibilityIdentifier(Constants.Form.Field.fieldTypePickerIdentifier)
         }
         .padding()
         .background(Color.white)
