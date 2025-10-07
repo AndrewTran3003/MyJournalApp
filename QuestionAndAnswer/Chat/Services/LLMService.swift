@@ -17,10 +17,21 @@ enum LLMError: Error, LocalizedError {
     }
 }
 
-class LLMService {
-    static let shared = LLMService()
+protocol LLMServiceProtocol {
+    func getResponse(for query: String, conversationHistory: [ChatMessage], completion: @escaping (Result<String, LLMError>) -> Void)
+}
 
-    private init() {}
+// Global service provider for dependency injection
+class LLMServiceProvider {
+    static var shared: LLMServiceProtocol = LLMService()
+    
+    static func configureForTesting() {
+        shared = MockLLMService()
+    }
+}
+
+class LLMService: LLMServiceProtocol {
+    init() {}
     let apiKey = ProcessInfo.processInfo.environment["deepseek-api-key"] ?? ""
     let serviceUrl = ProcessInfo.processInfo.environment["deepseek-service-url"] ?? ""
 
@@ -96,5 +107,15 @@ class LLMService {
             }
         }
         task.resume()
+    }
+}
+
+class MockLLMService: LLMServiceProtocol {
+    func getResponse(for query: String, conversationHistory: [ChatMessage], completion: @escaping (Result<String, LLMError>) -> Void) {
+        // Simulate a 3-second delay
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            let response = "This is a simulated response to: '\(query)'"
+            completion(.success(response))
+        }
     }
 } 

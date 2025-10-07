@@ -1,14 +1,17 @@
 import SwiftUI
 import CoreData
-import MarkdownUI
 
 struct ChatMessageView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @StateObject private var viewModel: ChatViewModel
     @State private var inputText: String = ""
 
-    init(conversation: ChatConversation) {
-        _viewModel = StateObject(wrappedValue: ChatViewModel(conversation: conversation, viewContext: PersistenceController.shared.container.viewContext))
+    init(conversation: ChatConversation, llmService: LLMServiceProtocol = LLMServiceProvider.shared) {
+        _viewModel = StateObject(wrappedValue: ChatViewModel(
+            conversation: conversation, 
+            viewContext: PersistenceController.shared.container.viewContext,
+            llmService: llmService
+        ))
     }
 
     var body: some View {
@@ -25,6 +28,7 @@ struct ChatMessageView: View {
                                 MessageBubble(message: message.text)
                                     .id(message.id)
                             }
+                            
                         }
                     }
                     .padding(.horizontal, 15)

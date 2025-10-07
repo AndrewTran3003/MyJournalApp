@@ -7,11 +7,12 @@ class ChatViewModel: ObservableObject {
     @Published var isComposing: Bool = false
     public let conversation: ChatConversation
     private let viewContext: NSManagedObjectContext
-    private let llmService = LLMService.shared
+    private let llmService: LLMServiceProtocol
 
-    init(conversation: ChatConversation, viewContext: NSManagedObjectContext) {
+    init(conversation: ChatConversation, viewContext: NSManagedObjectContext, llmService: LLMServiceProtocol) {
         self.conversation = conversation
         self.viewContext = viewContext
+        self.llmService = llmService
         fetchMessages()
     }
 
