@@ -1,20 +1,20 @@
 //
-//  NewFieldListView.swift
+//  FieldListView.swift
 //  QuestionAndAnswer
 //
 //  Created by Andrew Tran on 8/2/2025.
 //
 import SwiftUI
 
-struct NewFieldListView: View {
-    @ObservedObject var viewModel: CreateNewFormViewModel
+struct FieldListView: View {
+    @ObservedObject var viewModel: FormViewerViewModel
     
     @Binding var formFields : [FormField]
     
     var body: some View {
         VStack {
             ForEach(Array(formFields.enumerated()), id: \.element.id) { index, field in
-                    NewFieldView(
+                    FieldView(
                         viewModel: viewModel,
                         field: Binding(
                             get: { formFields[index] },

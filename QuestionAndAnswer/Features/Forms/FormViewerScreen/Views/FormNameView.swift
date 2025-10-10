@@ -1,5 +1,5 @@
 //
-//  NewFormNameView.swift
+//  FormNameView.swift
 //  QuestionAndAnswer
 //
 //  Created by Andrew Tran on 8/2/2025.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NewFormNameView: View {
+struct FormNameView: View {
     @Binding var formName: String
     
 

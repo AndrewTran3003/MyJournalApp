@@ -8,14 +8,14 @@
 import XCTest
 @testable import QuestionAndAnswer
 
-class CreateNewFormViewModelTests: XCTestCase {
-    var sut: CreateNewFormViewModel!  // system under test
+class FormViewerViewModelTests: XCTestCase {
+    var sut: FormViewerViewModel!  // system under test
     var mockState: AppState!
     
     override func setUp() {
         super.setUp()
         mockState = AppState()
-        sut = CreateNewFormViewModel(state: mockState)
+        sut = FormViewerViewModel(state: mockState)
     }
     
     override func tearDown() {
@@ -52,7 +52,7 @@ class CreateNewFormViewModelTests: XCTestCase {
     
     func testFieldTypeSelection() {
         // Arrange
-        let newType = CreateNewFormViewModel.FieldType.multiLineText
+        let newType = FormViewerViewModel.FieldType.multiLineText
         
         // Act
         sut.selectedFieldType = newType

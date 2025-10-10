@@ -34,9 +34,9 @@ class FormsRootScreenTests: XCTestCase {
         app.tabBars.buttons["Forms"].tap()
 
         // Assert
-        let createNewFormLink = app.buttons["Create a new form"]
-        XCTAssertTrue(createNewFormLink.exists, "Create a new form link should be visible")
-        XCTAssertTrue(createNewFormLink.isEnabled, "Create a new form link should be tappable")
+        let FormViewerLink = app.buttons["Create a new form"]
+        XCTAssertTrue(FormViewerLink.exists, "Create a new form link should be visible")
+        XCTAssertTrue(FormViewerLink.isEnabled, "Create a new form link should be tappable")
     }
 
 }

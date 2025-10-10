@@ -1,5 +1,5 @@
 //
-//  CreateNewFormScreenTests.swift
+//  FormViewerScreenTests.swift
 //  QuestionAndAnswer
 //
 //  Created by Andrew Tran on 7/10/2025.
@@ -7,7 +7,7 @@
 
 import XCTest
 
-class CreateNewFormScreenTests: XCTestCase {
+class FormViewerScreenTests: XCTestCase {
     var app: XCUIApplication!
 
     override func setUpWithError() throws {
@@ -58,8 +58,8 @@ class CreateNewFormScreenTests: XCTestCase {
         // Arrange
         let expectedFormName = "Test Entering Form Name"
         app.tabBars.buttons["Forms"].tap()
-        let createNewFormButton = app.buttons["Create a new form"]
-         createNewFormButton.tap()
+        let FormViewerButton = app.buttons["Create a new form"]
+         FormViewerButton.tap()
         let formNameField = app.textFields["Enter form name here"]
 
         // Act
@@ -143,7 +143,7 @@ class CreateNewFormScreenTests: XCTestCase {
             remainingFieldCount, 1, "Should have exactly one field with text 'Field to stay'")
 
     }
-    func testShouldHave3NewFieldViewsWhenTappingTheAddButtonTwice() throws {
+    func testShouldHave3FieldViewsWhenTappingTheAddButtonTwice() throws {
         // Arrange
         app.tabBars.buttons["Forms"].tap()
         app.buttons["Create a new form"].tap()

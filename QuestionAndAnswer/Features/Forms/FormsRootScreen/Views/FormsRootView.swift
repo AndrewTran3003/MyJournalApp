@@ -18,7 +18,7 @@ struct FormsRootView: View {
         NavigationView {
             VStack {
                 // This NavigationLink is hidden and is activated programmatically.
-                NavigationLink(destination: CreateNewFormView(viewModel: CreateNewFormViewModel(state: state)),
+                NavigationLink(destination: FormViewerView(viewModel: FormViewerViewModel(state: state)),
                                isActive: $navigateToCreateForm) { EmptyView() }
 
                 List {

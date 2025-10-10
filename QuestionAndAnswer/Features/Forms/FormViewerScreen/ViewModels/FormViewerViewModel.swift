@@ -1,6 +1,6 @@
 import SwiftUI
 
-class CreateNewFormViewModel: ObservableObject {
+class FormViewerViewModel: ObservableObject {
     @Published private var state: AppState
     
     init(state: AppState) {

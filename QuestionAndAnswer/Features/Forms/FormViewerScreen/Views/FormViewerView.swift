@@ -1,20 +1,20 @@
 import SwiftUI
 
-struct CreateNewFormView: View {
-    @ObservedObject var viewModel: CreateNewFormViewModel
+struct FormViewerView: View {
+    @ObservedObject var viewModel: FormViewerViewModel
 
     var body: some View {
         let activeForm = viewModel.getActiveForm()
         if activeForm != nil {
             NavigationView {
                 VStack(alignment: .leading) {
-                    NewFormNameView(formName: Binding(
+                    FormNameView(formName: Binding(
                         get: { activeForm!.formName },
                         set: { viewModel.updateFormName($0) }
                     ))
                     ScrollView {
                         LazyVStack(spacing: 16) {
-                            NewFieldListView(viewModel: viewModel, formFields: Binding(
+                            FieldListView(viewModel: viewModel, formFields: Binding(
                                 get: { activeForm?.fields ?? [] },
                                 set: { viewModel.updateFields($0) }
                             ))

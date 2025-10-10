@@ -1,7 +1,7 @@
 import SwiftUI
 
-struct NewFieldView: View {
-    @ObservedObject var viewModel: CreateNewFormViewModel
+struct FieldView: View {
+    @ObservedObject var viewModel: FormViewerViewModel
     @Binding var field: FormField
     let index: Int
     @State private var selectedFieldType: FieldType = FieldType.singleLineText

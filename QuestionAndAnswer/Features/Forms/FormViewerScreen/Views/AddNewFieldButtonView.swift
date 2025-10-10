@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct AddNewFieldButtonView: View {
-    @ObservedObject var viewModel: CreateNewFormViewModel
+    @ObservedObject var viewModel: FormViewerViewModel
 
     var body: some View {
         HStack {
